@@ -14,13 +14,13 @@ Two foundational notebooks demonstrating remote sensing techniques:
    - Spatial analytics fundamentals
    - Pattern recognition
    - Data visualization techniques
-   - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/oechenique/remote_sensing/blob/main/Notebook/raster.ipynb)
+   - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/oechenique/remote_sensing/blob/main/Notebook/raster.ipynb)
 
 2. **Satellite Data Analysis** 
    - Image processing
    - Feature extraction
    - Classification workflows
-   - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/oechenique/remote_sensing/blob/main/Notebook/load_satellite_data.ipynb)
+   - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/oechenique/remote_sensing/blob/main/Notebook/load_satellite_data.ipynb)
 
 ## 🛠️ Technologies
 
