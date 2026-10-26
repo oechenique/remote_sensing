@@ -5,7 +5,7 @@
 
 **Satellite imagery with Python, from a global forest map to one forest fire: Sentinel-2 searched through STAC, loaded lazily with odc-stac, cloud-masked and turned into burn severity and five years of recovery. No downloads by hand, no account, no GPU.**
 
-![Manavgat wildfire 2021: before, after and burn severity](docs/img/manavgat_severity.png)
+![Manavgat wildfire 2021: before, after and burn severity](docs/img/manavgat_severity.jpg)
 
 Three notebooks, each runnable in Colab or locally, rewritten in 2026 from the original 2023–2024 versions (kept in [`legacy/`](legacy/)).
 
