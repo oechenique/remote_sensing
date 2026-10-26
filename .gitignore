@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data downloaded at run time (never committed, re-downloaded; pooch caches into data/)
+data/
+*.tif
+*.tiff
+*.zip
+*.nc
+*.zarr/
+# The old figure in legacy/ is kept
+!legacy/data/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
