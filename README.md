@@ -43,7 +43,7 @@ Nothing heavy is stored in the repo. Sentinel-2 pixels are streamed from Cloud-O
 
 - **Manavgat burned ~50,000 ha; 22,300 ha at moderate-high or high severity.** dNBR from 17 pre-fire and 14 post-fire scenes, at 20 m, classified with the USGS thresholds (Key & Benson 2006) ([notebook 03](notebooks/03_manavgat_burn_ndvi.ipynb)).
 - **Five years later the burned forest has closed 60 % of the gap.** Summer NDVI of the severely burned area was 0.67 before the fire, 0.21 right after it and 0.49 in 2026. Relative to an unburned control: 102 % → 32 % → 73 %, recovering every year (39 % in 2022, 56 % in 2023, 59 %, 66 %, 73 %). That comes from 722 scenes, 258 of them clear enough over both areas.
-- **A monthly composite beats "the first scene"**: on 2023-12-02, the scene the 2024 notebook plotted, only 31 % of the Antalya box was clear; the December median composite has a clear value for 99.9 % of pixels ([notebook 02](notebooks/02_sentinel2_stac.ipynb)).
+- **A monthly composite beats "the first scene"**: on 2023-12-02, the scene the 2024 notebook plotted, only 31 % of the Antalya box was clear; the December median composite has a clear value for virtually every pixel (100.0 % rounded) ([notebook 02](notebooks/02_sentinel2_stac.ipynb)).
 - **23 % of the land north of 60°S is under tree canopy** (30.0 of 132.8 million km²), and 39 % has at least 10 % cover. The equatorial band averages 54 % cover against 14 % in the 20–35°N dry belt. Every figure is area-weighted ([notebook 01](notebooks/01_world_forests.ipynb)).
 
 ![NDVI of the burned area vs. an unburned control, 2019–2026](docs/img/manavgat_ndvi.png)
