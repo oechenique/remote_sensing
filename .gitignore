@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Datos descargados en runtime (no se versionan, se re-descargan; pooch cachea en data/)
+data/
+*.tif
+*.tiff
+*.zip
+*.nc
+*.zarr/
+# La figura vieja de legacy/ sí se versiona
+!legacy/data/
+
+# Secretos
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
