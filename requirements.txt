@@ -1,28 +1,28 @@
-# Entorno local de los notebooks (probado con Python 3.12.10 el 2026-10-26).
+# Local environment for the notebooks (tested with Python 3.12.10 on 2026-10-26).
 #   python -m venv .venv
 #   .venv\Scripts\python.exe -m pip install -r requirements.txt      (Windows)
 #   .venv/bin/python -m pip install -r requirements.txt              (Linux/macOS)
-# En Colab no hace falta: la primera celda de cada notebook instala solo odc-stac,
-# pystac-client, spyndex y pooch (las mismas versiones) sin tocar el numpy de Colab.
+# Not needed on Colab: the first cell of each notebook installs only odc-stac,
+# pystac-client, spyndex and pooch (same versions) without touching Colab's numpy.
 
-# Lectura de rasters y STAC
+# Raster reading and STAC
 rasterio==1.5.2
 pystac-client==0.9.1
 odc-stac==0.5.3
 
-# Arrays y tablas
+# Arrays and tables
 numpy==2.5.4
 pandas==3.1.0
 xarray==2026.9.0
 dask==2026.8.0
 
-# Índices espectrales (Awesome Spectral Indices)
+# Spectral indices (Awesome Spectral Indices)
 spyndex==0.12.0
 
-# Descarga cacheada y verificada por hash (Global Map)
+# Cached, hash-verified download (Global Map)
 pooch==1.9.0
 
-# Figuras
+# Figures
 matplotlib==3.11.2
 
 # Jupyter

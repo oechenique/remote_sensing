@@ -7,17 +7,17 @@ venv/
 # Jupyter
 .ipynb_checkpoints/
 
-# Datos descargados en runtime (no se versionan, se re-descargan; pooch cachea en data/)
+# Data downloaded at run time (never committed, re-downloaded; pooch caches into data/)
 data/
 *.tif
 *.tiff
 *.zip
 *.nc
 *.zarr/
-# La figura vieja de legacy/ sí se versiona
+# The old figure in legacy/ is kept
 !legacy/data/
 
-# Secretos
+# Secrets
 .env
 .env.*
 !.env.example
