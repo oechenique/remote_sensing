@@ -3,6 +3,8 @@
 [![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white)](requirements.txt)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
+**Start here →** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/oechenique/remote_sensing/blob/main/notebooks/03_manavgat_burn_ndvi.ipynb) · [🇦🇷 Español](README.es.md)
+
 **Satellite imagery with Python, from a global forest map to one forest fire: Sentinel-2 searched through STAC, loaded lazily with odc-stac, cloud-masked and turned into burn severity and five years of recovery. No downloads by hand, no account, no GPU.**
 
 ![Manavgat wildfire 2021: before, after and burn severity](docs/img/manavgat_severity.jpg)
@@ -43,7 +45,7 @@ Nothing heavy is stored in the repo. Sentinel-2 pixels are streamed from Cloud-O
 
 - **Manavgat burned ~50,000 ha; 22,300 ha at moderate-high or high severity.** dNBR from 17 pre-fire and 14 post-fire scenes, at 20 m, classified with the USGS thresholds (Key & Benson 2006) ([notebook 03](notebooks/03_manavgat_burn_ndvi.ipynb)).
 - **Five years later the burned forest has closed 60 % of the gap.** Summer NDVI of the severely burned area was 0.67 before the fire, 0.21 right after it and 0.49 in 2026. Relative to an unburned control: 102 % → 32 % → 73 %, recovering every year (39 % in 2022, 56 % in 2023, 59 %, 66 %, 73 %). That comes from 722 scenes, 258 of them clear enough over both areas.
-- **A monthly composite beats "the first scene"**: on 2023-12-02, the scene the 2024 notebook plotted, only 31 % of the Antalya box was clear; the December median composite has a clear value for virtually every pixel (100.0 % rounded) ([notebook 02](notebooks/02_sentinel2_stac.ipynb)).
+- **A monthly composite beats "the first scene"**: on 2023-12-02, the scene the 2024 notebook plotted, only 31 % of the Antalya box was clear; the December median composite has a clear value for virtually every pixel (over 99.9 %) ([notebook 02](notebooks/02_sentinel2_stac.ipynb)).
 - **23 % of the land north of 60°S is under tree canopy** (30.0 of 132.8 million km²), and 39 % has at least 10 % cover. The equatorial band averages 54 % cover against 14 % in the 20–35°N dry belt. Every figure is area-weighted ([notebook 01](notebooks/01_world_forests.ipynb)).
 
 ![NDVI of the burned area vs. an unburned control, 2019–2026](docs/img/manavgat_ndvi.png)
@@ -58,14 +60,18 @@ Nothing heavy is stored in the repo. Sentinel-2 pixels are streamed from Cloud-O
 - **Pixels on a lat/lon grid are not equal.** A 30″ pixel at 60°N covers half the ground of one at the equator; counting pixels would overweight boreal forests.
 - **`/vsizip` + `pooch`** instead of a committed 87 MB GeoTIFF: GDAL reads the TIFF inside the zip, and the hash guarantees the file is the expected one.
 
-## Limits and what I'd do next
+<details>
+<summary><b>Limits and what I'd do next</b></summary>
 
 - The burn statistics use a bounding box, not the official perimeter. The *Low* class also catches some farmland harvested between the two windows, so 50,000 ha is an upper bound. Next: clip to the EFFIS perimeter.
 - NDVI measures greenness, not forest. Shrubs and grass green up long before pines grow back; canopy height (GEDI) or SAR would tell them apart.
 - Global Map PTC is a ~2003 baseline at ~1 km. For a current, finer picture: ESA WorldCover (10 m) or Hansen Global Forest Change.
 - A geospatial foundation model (Prithvi, Clay, TerraMind) could segment burn scars, but it needs `torch` and in practice a GPU. Here dNBR answers the same question and stays explainable.
 
-## Stack
+</details>
+
+<details>
+<summary><b>Stack</b></summary>
 
 | Layer | Tools |
 |---|---|
@@ -75,7 +81,10 @@ Nothing heavy is stored in the repo. Sentinel-2 pixels are streamed from Cloud-O
 | Data management | `pooch` (cached, hash-verified download) |
 | Figures | `matplotlib` |
 
-## Repository layout
+</details>
+
+<details>
+<summary><b>Repository layout</b></summary>
 
 | Path | Contents |
 |---|---|
@@ -84,6 +93,8 @@ Nothing heavy is stored in the repo. Sentinel-2 pixels are streamed from Cloud-O
 | `legacy/` | The original 2023–2024 notebooks, untouched, with a note on what changed |
 | `Notebook/` | Stubs at the old paths, so links shared before 2026 still lead somewhere |
 | `requirements.txt` | Pinned environment for running locally |
+
+</details>
 
 ## Run it
 
@@ -101,7 +112,8 @@ python -m venv .venv
 
 No credentials are needed: Earth Search and the Sentinel-2 COGs are public.
 
-## Licenses and attribution
+<details>
+<summary><b>Licenses and attribution</b></summary>
 
 - **Code:** [MIT](LICENSE).
 - **Global Map – Percent Tree Cover:** *Vegetation (Percent Tree Cover) - Global version - Version 1 © Geospatial Information Authority of Japan, Chiba University and Collaborating Organizations.* The data source and copyright must be shown on any product that uses it ([globalmaps/gm_ve_v1](https://github.com/globalmaps/gm_ve_v1)).
@@ -109,14 +121,4 @@ No credentials are needed: Earth Search and the Sentinel-2 COGs are public.
 - **Spectral index definitions:** [Awesome Spectral Indices](https://github.com/awesome-spectral-indices/awesome-spectral-indices) via `spyndex`.
 - **Burn severity thresholds:** Key, C. H. & Benson, N. C. (2006). *Landscape Assessment (LA)*. FIREMON: Fire Effects Monitoring and Inventory System, USDA Forest Service, RMRS-GTR-164-CD.
 
----
-
-## Resumen en español
-
-Teledetección con Python en tres notebooks que corren en Colab o en local, sin bajar imágenes a mano, sin cuenta y sin GPU:
-
-1. **Bosques del mundo**: el mapa de cobertura arbórea de Global Map (~1 km) con estadísticas ponderadas por área. El 23 % de la tierra al norte de 60°S está bajo copa.
-2. **Sentinel-2 sobre Antalya por STAC**: búsqueda con `pystac-client`, carga lazy con `odc-stac`, máscara de nubes con SCL, compuesto mensual sin nubes y NDVI con `spyndex`.
-3. **Incendio de Manavgat (2021)**: severidad con dNBR (~50.000 ha quemadas, 22.300 de severidad alta o moderada-alta) y la recuperación 2019–2026. Cinco años después el bosque quemado recuperó el 60 % de la diferencia con un bosque sano de control.
-
-Lo más interesante del camino: la Collection 1 de Sentinel-2 casi no tiene 2022 en esa zona. Además, la colección vieja que llena el hueco publica un offset en su metadata que sus píxeles ya no tienen; aplicarlo deformaba la serie. Los notebooks originales de 2023–2024 quedan en `legacy/`.
+</details>
