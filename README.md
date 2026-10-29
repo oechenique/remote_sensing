@@ -122,3 +122,7 @@ No credentials are needed: Earth Search and the Sentinel-2 COGs are public.
 - **Burn severity thresholds:** Key, C. H. & Benson, N. C. (2006). *Landscape Assessment (LA)*. FIREMON: Fire Effects Monitoring and Inventory System, USDA Forest Service, RMRS-GTR-164-CD.
 
 </details>
+
+## Related
+
+- [streaming-satelites-databricks](https://github.com/oechenique/streaming-satelites-databricks): real-time streaming of satellite positions (SGP4) on Databricks.
